@@ -43,17 +43,30 @@ export class TemplateFormComponent implements OnInit {
   }
 
   populaDadosForm(dados: any, form: any) {
-    form.setValue({
-      nome: form.value.nome,
-      email: form.value.email,
+    form.form.patchValue({
       endereco: {
         rua: dados.logradouro,
         cep: dados.cep,
-        numero: form.value.numero,
         complemento: dados.complemento,
         bairro: dados.bairro,
         cidade: dados.localidade,
         estado: dados.uf,
+      },
+    });
+  }
+
+  resetaDadosForm(form: any) {
+    form.form.patchValue({
+      nome: null,
+      email: null,
+      endereco: {
+        rua: null,
+        cep: null,
+        numero: null,
+        complemento: null,
+        bairro: null,
+        cidade: null,
+        estado: null,
       },
     });
   }

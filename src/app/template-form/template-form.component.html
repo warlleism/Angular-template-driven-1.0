@@ -1,5 +1,6 @@
 <main>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-horizontal">
+        <h1>Templa Driven</h1>
 
         <div class="form-group" [ngClass]="aplicaCssErro(nome)">
 
@@ -37,7 +38,7 @@
 
                 </div>
 
-                <div class="col-sm-2" [ngClass]="aplicaCssErro(numero)">
+                <div class="col-sm-3" [ngClass]="aplicaCssErro(numero)">
                     <label for="numero" class="control-label">Número</label>
                     <input type="text" class="form-control " id="numero" name="numero" ngModel required #numero="ngModel">
                     <app-campo-control-erro [mostrarErro]="verificaValidTouched(numero)" [msgErro]=" 'Número é necessário.' ">
@@ -98,6 +99,8 @@
         </div>
 
 
-        <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+        <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Enviar</button>
+
+        <button type="submit" style="margin-left: 20px;" class="btn btn-primary" (click)="resetaDadosForm(f)">Resetar</button>
     </form>
 </main>
