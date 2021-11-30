@@ -44,12 +44,12 @@ export class TemplateFormComponent implements OnInit {
 
   populaDadosForm(dados: any, form: any) {
     form.setValue({
-      nome: null,
-      email: null,
+      nome: form.value.nome,
+      email: form.value.email,
       endereco: {
         rua: dados.logradouro,
         cep: dados.cep,
-        numero: ' ',
+        numero: form.value.numero,
         complemento: dados.complemento,
         bairro: dados.bairro,
         cidade: dados.localidade,
